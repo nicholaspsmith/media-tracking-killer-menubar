@@ -7,6 +7,9 @@ import StatusItemKit
 /// gray = paused.
 final class App: NSObject, NSApplicationDelegate {
     private var controller: StatusItemController!
+    /// Gives up this item's width while Curtain reveals its hidden block, so the
+    /// block has room to land; restores itself from the TTL if Curtain vanishes.
+    private var yieldClient: YieldClient!
     private let defaults = UserDefaults.standard
 
     /// Daemons this app targets. Each is individually toggleable in the menu.
@@ -49,6 +52,8 @@ final class App: NSObject, NSApplicationDelegate {
             onBuildMenu: { [weak self] menu in self?.buildMenu(menu) }
         )
         controller.start()
+        yieldClient = YieldClient(item: controller)
+        yieldClient.start()
     }
 
     /// Runs every 5s: refresh the icon, and sweep when the configured
