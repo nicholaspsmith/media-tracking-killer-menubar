@@ -1,5 +1,7 @@
 # Media Tracking Killer
 
+<p align="center"><img src="docs/mascot.png" width="160" alt="Media Tracking Killer mascot, from the Menubarn widget library"></p>
+
 Menu-bar app that periodically stops Apple's media-analysis daemons
 (`mediaanalysisd`, `mediaanalysisd-access`, `photoanalysisd`) with SIGINT.
 Built on [StatusItemKit](https://github.com/nicholaspsmith/StatusItemKit);
