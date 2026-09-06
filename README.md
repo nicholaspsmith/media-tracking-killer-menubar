@@ -9,8 +9,8 @@ Menu-bar app that periodically stops Apple's media-analysis daemons
 Built on [StatusItemKit](https://github.com/nicholaspsmith/StatusItemKit);
 replaces the old `killapplemediatracking.sh` shell loop + launchd agent.
 
-- **Green dot** — active, killing on the configured interval
-- **Gray dot** — paused
+- **Green crossed-out eye** — active, killing on the configured interval
+- **Gray crossed-out eye** — paused
 
 ## Menu
 
@@ -56,7 +56,7 @@ System Settings ▸ General ▸ Login Items.)
 
 ## Why not a SwiftBar plugin?
 
-This is a standalone `.app` built on [StatusItemKit](https://github.com/nicholaspsmith/StatusItemKit), not a script under a plugin host: no SwiftBar to install, a real AppKit menu instead of rendered stdout, event-driven updates instead of a re-run timer, and an icon that keeps its place in the bar. It replaced a shell loop plus a launchd agent; now the interval, the status dot and Start at Login are one app with no host. The full comparison is in [StatusItemKit's README](https://github.com/nicholaspsmith/StatusItemKit#why-not-swiftbar).
+This is a standalone `.app` built on [StatusItemKit](https://github.com/nicholaspsmith/StatusItemKit), not a script under a plugin host: no SwiftBar to install, a real AppKit menu instead of rendered stdout, event-driven updates instead of a re-run timer, and an icon that keeps its place in the bar. It replaced a shell loop plus a launchd agent; now the interval, the status icon and Start at Login are one app with no host. The full comparison is in [StatusItemKit's README](https://github.com/nicholaspsmith/StatusItemKit#why-not-swiftbar).
 
 ## The menu-bar suite
 

@@ -3,7 +3,8 @@ import StatusItemKit
 
 /// Menu-bar app that periodically SIGINTs Apple's media-analysis daemons
 /// (mediaanalysisd & friends), replacing the old always-on shell loop +
-/// launchd agent. Green dot = actively killing; gray dot = paused.
+/// launchd agent. The icon is a crossed-out eye: green = actively killing,
+/// gray = paused.
 final class App: NSObject, NSApplicationDelegate {
     private var controller: StatusItemController!
     private let defaults = UserDefaults.standard
@@ -57,7 +58,7 @@ final class App: NSObject, NSApplicationDelegate {
             sweep()
         }
         let color: NSColor = enabled ? .systemGreen : .systemGray
-        controller.setIcon(MeterIcon.dot(color: color))
+        controller.setIcon(MeterIcon.symbol("eye.slash", color: color))
     }
 
     /// SIGINT every enabled target. killall exits non-zero when nothing
