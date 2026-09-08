@@ -63,8 +63,10 @@ final class App: NSObject, NSApplicationDelegate {
             sweep()
         }
         let color: NSColor = enabled ? .systemGreen : .systemGray
-        controller.setIcon(MeterIcon.symbol("eye.slash", color: color))
-    }
+        switch IconStyle.current {
+        case .character: controller.setIcon(CharacterIcon.raccoon(active: enabled))
+        case .symbol: controller.setIcon(MeterIcon.symbol("eye.slash", color: color))
+        }    }
 
     /// SIGINT every enabled target. killall exits non-zero when nothing
     /// matched, which Shell.run reports as nil — so non-nil means we hit one.
@@ -130,6 +132,18 @@ final class App: NSObject, NSApplicationDelegate {
 
         menu.addItem(NSMenuItem.separator())
 
+        let iconHeader = NSMenuItem(title: "Icon", action: nil, keyEquivalent: "")
+        let iconSub = NSMenu()
+        for style in IconStyle.allCases {
+            let item = NSMenuItem(title: style.title, action: #selector(pickIconStyle(_:)), keyEquivalent: "")
+            item.target = self
+            item.representedObject = style.rawValue
+            item.state = style == IconStyle.current ? .on : .off
+            iconSub.addItem(item)
+        }
+        iconHeader.submenu = iconSub
+        menu.addItem(iconHeader)
+
         let login = NSMenuItem(title: "Start at Login",
                                action: #selector(toggleLogin), keyEquivalent: "")
         login.target = self
@@ -150,6 +164,23 @@ final class App: NSObject, NSApplicationDelegate {
         let process = targets[sender.tag].process
         setTargetEnabled(process, !targetEnabled(process))
     }
+    /// The raccoon mascot or the plain symbol. Persisted.
+    enum IconStyle: String, CaseIterable {
+        case character, symbol
+        var title: String { self == .character ? "Raccoon" : "Symbol" }
+        private static let key = "iconStyle"
+        static var current: IconStyle {
+            get { UserDefaults.standard.string(forKey: key).flatMap(IconStyle.init) ?? .character }
+            set { UserDefaults.standard.set(newValue.rawValue, forKey: key) }
+        }
+    }
+
+    @objc private func pickIconStyle(_ sender: NSMenuItem) {
+        guard let raw = sender.representedObject as? String, let style = IconStyle(rawValue: raw) else { return }
+        IconStyle.current = style
+        poll()
+    }
+
     @objc private func toggleLogin() { LoginItem.toggle() }
 }
 
