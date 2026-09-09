@@ -9,8 +9,12 @@ Menu-bar app that periodically stops Apple's media-analysis daemons
 Built on [StatusItemKit](https://github.com/nicholaspsmith/StatusItemKit);
 replaces the old `killapplemediatracking.sh` shell loop + launchd agent.
 
-- **Green crossed-out eye** — active, killing on the configured interval
-- **Gray crossed-out eye** — paused
+![The menu-bar icon](docs/menubar-icon.png)
+
+- **Raccoon with red eyes** — active, killing on the configured interval
+- **Grey raccoon, eyes closed** — paused
+
+Prefer the crossed-out-eye symbol? **menu ▸ Icon ▸ Symbol**.
 
 ## Menu
 
@@ -70,7 +74,7 @@ colour, and cooperative hiding so no icon strands another.
 | [Claude Usage](https://github.com/nicholaspsmith/claude-usage-menubar) | Claude Code plan limits, resets, and live agent sessions |
 | [Apollo Monitor](https://github.com/nicholaspsmith/apollo-monitor-menubar) | Universal Audio Apollo monitor level, plus a UA process watchdog |
 | [Battery Time](https://github.com/nicholaspsmith/battery-time-menubar) | Time remaining, power mode, and 24h usage |
-| [VPN & DNS](https://github.com/nicholaspsmith/vpn-dns-menubar) | One dot for Mullvad + Tailscale state, with a DNS watcher |
+| [VPN & DNS](https://github.com/nicholaspsmith/vpn-dns-menubar) | A chameleon for Mullvad + Tailscale state, with a DNS watcher |
 | [Process Monitor](https://github.com/nicholaspsmith/MacOS_Process_Monitor) | Process-count sparkline against the per-UID limit |
 | [KeyLight](https://github.com/nicholaspsmith/keylight-menubar) | Ctrl+brightness keys remapped to keyboard backlight |
 | [MacRecorder](https://github.com/nicholaspsmith/MacRecorder) | Screen recording with system audio |
