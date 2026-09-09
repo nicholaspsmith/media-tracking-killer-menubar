@@ -6,8 +6,7 @@
 
 Menu-bar app that periodically stops Apple's media-analysis daemons
 (`mediaanalysisd`, `mediaanalysisd-access`, `photoanalysisd`) with SIGINT.
-Built on [StatusItemKit](https://github.com/nicholaspsmith/StatusItemKit);
-replaces the old `killapplemediatracking.sh` shell loop + launchd agent.
+Built on [StatusItemKit](https://github.com/nicholaspsmith/StatusItemKit).
 
 ![The menu-bar icon](docs/menubar-icon.png)
 
@@ -43,9 +42,7 @@ cd media-tracking-killer-menubar
 ./install.sh
 ```
 
-`install.sh` builds the app, symlinks it into `~/Applications`, retires the
-legacy `com.user.killapplemediatracking` launchd agent if present, and
-launches the app.
+`install.sh` builds the app, symlinks it into `~/Applications`, and launches it.
 
 ## Uninstall
 
