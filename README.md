@@ -44,6 +44,19 @@ cd media-tracking-killer-menubar
 
 `install.sh` builds the app, symlinks it into `~/Applications`, and launches it.
 
+### Start at Login
+
+Toggle it from the menu, or from the shell:
+
+```sh
+"$HOME/Applications/Media Tracking Killer.app/Contents/MacOS/MediaTrackingKiller" --login on       # or: off, status
+```
+
+`install.sh` already runs this for you. Start at Login is `SMAppService.mainApp`, which can only
+register the calling process's own bundle — so nothing outside the app can turn
+it on, and the command has to be the *installed* binary. A bare `--login`, or
+`--login status`, only reports the current state and changes nothing.
+
 ## Uninstall
 
 ```sh
