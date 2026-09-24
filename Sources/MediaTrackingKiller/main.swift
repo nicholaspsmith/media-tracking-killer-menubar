@@ -157,6 +157,7 @@ final class App: NSObject, NSApplicationDelegate {
         menu.addItem(login)
 
         menu.addItem(NSMenuItem.separator())
+        menu.addItem(AppVersion.menuItem())
         menu.addItem(NSMenuItem(title: "Quit",
                                 action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
     }
