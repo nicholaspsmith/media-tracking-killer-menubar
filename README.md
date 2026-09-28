@@ -10,8 +10,8 @@ Built on [StatusItemKit](https://github.com/nicholaspsmith/StatusItemKit).
 
 ![The menu-bar icon](docs/menubar-icon.png)
 
-- **Raccoon with red eyes** — active, killing on the configured interval
-- **Grey raccoon, eyes closed** — paused
+- **Masked raccoon, red eyes, scowling** — active, killing on the configured interval
+- **Grey raccoon asleep, with a blue z** — paused
 
 Prefer the crossed-out-eye symbol? **menu ▸ Icon ▸ Symbol**.
 
