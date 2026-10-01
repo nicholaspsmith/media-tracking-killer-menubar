@@ -4,6 +4,9 @@
 
 <p align="center">Part of the <a href="https://widgets.nicksmith.software">Menubarn</a> widget library.</p>
 
+> [!IMPORTANT]
+> **Merged into [Mac Daddy](https://github.com/nicholaspsmith/mac-daddy-menubar)** (2026-10-01). This repo is archived; Mac Daddy does everything this app did, keeps its settings, and its `install.sh` retires this app.
+
 Menu-bar app that periodically stops Apple's media-analysis daemons
 (`mediaanalysisd`, `mediaanalysisd-access`, `photoanalysisd`) with SIGINT.
 Built on [StatusItemKit](https://github.com/nicholaspsmith/StatusItemKit).
